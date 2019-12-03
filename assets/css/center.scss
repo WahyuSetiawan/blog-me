@@ -2,9 +2,7 @@
 ---
 
 @charset "utf-8";
-@import "typography";
 
-.content {
-  width: 45rem;
-  margin: 0 auto;
-}
+@import "typography";
+@import "template";
+@import "component";

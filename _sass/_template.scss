@@ -1,0 +1,18 @@
+@import "variable";
+
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content:  center;
+    background-color: blue($color: $color-primary);
+}
+
+.navigation{
+    flex: 1;
+    max-width: 200px;
+}
+
+.container{
+    flex: 3;
+    background-color: chocolate;
+}

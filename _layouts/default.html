@@ -1,13 +1,42 @@
 <html>
 
-<head>
-    <title>{{ page.title }}</title>
+    <head>
+        <title>{{ page.title }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
-</head>
+        <link rel="stylesheet" href="{{ '/assets/css/center.css' | relative_url
+            }}"
+            />
+    </head>
 
-<body>
-    {{content}}
-</body>
+    <body>
+        <div class="navigation">
+            <ul class="navigation">
+                <li>
+                    <a href="{{site.url}}">Home</a>
+                </li>
+                <li>
+                    <a href="{{site.url}}/page/service">Service</a>
+                </li>
+                <li>
+                    <a href="{{site.url}}/page/experience">Experience</a>
+                </li>
+                <li>
+                    <a href="{{site.url}}/page/works">Works</a>
+                </li>
+                <li>
+                    <a href="{{site.url}}/page/blog">Blog</a>
+                </li>
+                <li>
+                    <a href="{{site.url}}/page/about">About</a>
+                </li>
+                <li>
+                    <a href="{{site.url}}/page/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            {{content}}
+        </div>
+    </body>
 
 </html>
