@@ -3,17 +3,14 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     colorator (1.1.0)
     concurrent-ruby (1.1.5)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
+    eventmachine (1.2.7)
     eventmachine (1.2.7-x64-mingw32)
-    execjs (2.7.0)
+    ffi (1.11.3)
     ffi (1.11.3-x64-mingw32)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
@@ -34,9 +31,6 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 1.8)
-    jekyll-coffeescript (2.0.0)
-      coffee-script (~> 2.2)
-      coffee-script-source (~> 1.12)
     jekyll-feed (0.13.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (2.0.1)
@@ -65,6 +59,8 @@ GEM
       ffi (~> 1.0)
     rouge (3.13.0)
     safe_yaml (1.0.5)
+    sassc (2.2.1)
+      ffi (~> 1.9)
     sassc (2.2.1-x64-mingw32)
       ffi (~> 1.9)
     terminal-table (1.8.0)
@@ -78,11 +74,11 @@ GEM
     wdm (0.1.1)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
   jekyll (= 4.0.0)
-  jekyll-coffeescript
   jekyll-feed (~> 0.12)
   jekyll-sass-converter
   jekyll-seo-tag

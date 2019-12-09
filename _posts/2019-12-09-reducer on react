@@ -1,0 +1,173 @@
+---
+layout: post
+title:membuat reducer dan provider di react
+date: 2019-12-09 10:46
+category:React Nativ4e
+author: Wahyu Setiawna
+tags: [react, mobile, js]
+summary: membuat reducer dan provider di react native
+---
+
+
+membuat file reducer dengan naman createDataContext.js, isi file yang akan di gunakan seperti dibawah ini
+
+import React, { useReducer } from 'react';
+
+export default ( reducer, action, initialState ) => {
+    const Context  = React.createContext();
+
+
+    const Provider = ({children}) =>{
+        const [ state, dispatch ] = useReducer(reducer, initialState);
+
+        return (
+            <Context.Provider value={{ state }}>
+                {children}
+            </Context.Provider>
+        );
+    }
+};
+
+
+isi file di context pusat :
+
+import React, { useReducer } fron 'react';
+import reactDataContext()
+
+
+const blogReducer = (state, action) => {
+    switch (action.type){
+        case "add_blogpost":
+            return [...state, { title: 'Blog Post #${state.length + 1}}];
+        default:
+            return state;
+    }
+};
+
+const addBlogPost = () => {
+    dispatch({ type: 'add_blogpost' });
+};
+
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost }, [] );
+
+<h3>Automatic Context Creation</h3>
+
+menambah automatic content creation dengan menggunakan, mengubah file createDataContext.js, dengan menambahkan beberapa insert dari
+
+import React, { useReducer } from 'react';
+
+export defaul ( reducer , action, initialState ) => {
+    const Context =  React.createContext();
+
+    const [ state, dispatch ] = userReducer(reducer, initialReducer);
+
+    const Provider = ({ children }) => {
+        const [ state, dispatch ] = userReducer(reducer, initialState );
+
+        const boundsAction = {};
+
+        for (let key in actions){
+            boundsAction[key] = actions[key](dispathc);
+        }
+
+        return (
+            <Context.Provider value=({ state, ...boundsAction })>
+                {children}
+            </Context.Provider>
+        )
+    }
+}
+
+mengubah di index screen dengan menggunakan creation context yang telah di gunakan
+
+import React, { userContext } from 'react';
+import { View, Text, StyleSheet, FlatList, Button } form 'react-native';
+import { Context } form '../context/BlogContext';
+
+const IndexScreen = () => {
+    const {data, addBlogPost } = userContext(Context);
+
+    return (
+        <View>
+            <Text>Index Screen</Text>
+            <Button title="Add Post" onPress={addBlogPost}/>
+            <FlatList
+                data={data}
+                keyExtractor={blogPost => BlogPost.title}
+                renderItem={ ({ item })  => {
+                    return <Text>{item.title}</Text>
+                }}
+            />
+        </View>
+    )
+}
+
+<h3>Deleting Post</h3>
+
+
+untuk menghapus post yang terdapat dalam provider porvider harus dirombah dengan menambahkan beberapa syntaq seperti
+
+import React, { useReducer } fron 'react';
+import reactDataContext()
+
+
+const blogReducer = (state, action) => {
+    switch (action.type){
+        case "delete_blogpost":
+            return state.filter({item} => item.id !== action.payload);
+        case "add_blogpost":
+            return [...state, { title: 'Blog Post #${state.length + 1}}];
+        default:
+            return state;
+    }
+};
+
+const addBlogPost = dispatch => {
+    return () => {
+        dispatch({ type: 'add_blogpost' });
+    };
+};
+
+const deleteBlogPost = dispatch => {
+    return (id) => {
+        dispatch({ type: 'delete_blogpost', payload: id});
+    };
+}
+
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [] );
+
+
+/*
+
+view
+
+*/
+
+import React, { userContext } from 'react';
+import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } form 'react-native';
+import { Context } form '../context/BlogContext';
+import { Rather } form @expo/vector-icons;
+
+const IndexScreen = () => {
+    const {data, addBlogPost, deleteBlogPost } = userContext(Context);
+
+    return (
+        <View>
+            <Text>Index Screen</Text>
+            <Button title="Add Post" onPress={addBlogPost}/>
+            <FlatList
+                data={data}
+                keyExtractor={blogPost => BlogPost.title}
+                renderItem={ ({ item })  => {
+                    return
+                        <View>
+                            <Text>{item.title} - {item.id}</Text>
+                            <TouchableOpacity onPress={() => deleteBlogPost()}>
+                                <Father style={styles.icon} name="Trash"/>
+                            </TouchableOpacity>
+                        </View>;
+                }}
+            />
+        </View>
+    )
+}
