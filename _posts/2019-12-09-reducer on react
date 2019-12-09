@@ -171,3 +171,77 @@ const IndexScreen = () => {
         </View>
     )
 }
+
+
+<h3>Add Navigation Options</h3>
+
+Header Navigation ditabahkan di file IndexScreen
+
+const IndexScreen = () => {
+    const {data, addBlogPost, deleteBlogPost } = userContext(Context);
+
+    return (
+        <View>
+            <Text>Index Screen</Text>
+            <Button title="Add Post" onPress={addBlogPost}/>
+            <FlatList
+                data={data}
+                keyExtractor={blogPost => BlogPost.title}
+                renderItem={ ({ item })  => {
+                    return
+                        <View>
+                            <Text>{item.title} - {item.id}</Text>
+                            <TouchableOpacity onPress={() => deleteBlogPost()}>
+                                <Father style={styles.icon} name="Trash"/>
+                            </TouchableOpacity>
+                        </View>;
+                }}
+            />
+        </View>
+    )
+}
+
+
+IndexScreen.navigationOptions = (navigation) => {
+    return {
+        headerRight: <TouchableOpacity onPress={() => navigation.navigate("create")}>
+            <Feather name="plus" size={30} />
+        </TouchableOpacity>
+    }
+};
+
+<h3>Saving A new post</h3>
+
+import React, { useReducer } fron 'react';
+import reactDataContext()
+import Math from 'math';
+
+
+const blogReducer = (state, action) => {
+    switch (action.type){
+        case "delete_blogpost":
+            return state.filter({item} => item.id !== action.payload);
+        case "add_blogpost":
+            return [ ...state, {
+                id: Math.floor(Math.random() * 99999),
+                title: action.payload.title,
+                content: action.payload.content 
+            } } ];
+        default:
+            return state;
+    }
+};
+
+const addBlogPost = dispatch => {
+    return (title, content) => {
+        dispatch({ type: 'add_blogpost', data: [ title, content ] });
+    };
+};
+
+const deleteBlogPost = dispatch => {
+    return (id) => {
+        dispatch({ type: 'delete_blogpost', payload: id});
+    };
+}
+
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [] );
