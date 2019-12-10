@@ -4,7 +4,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 18px;
     line-height: 1.5;
-    color: #24292e;
+    color: $color-navigation;
     background-color: #fff;
 }
 
@@ -35,4 +35,9 @@ div.profile .profile__name{
 .profile__skill{
     color: white;
     font-size: 16px;
+}
+
+.container__title{
+    font-size: 45px;
+    margin-bottom: 20px;
 }
