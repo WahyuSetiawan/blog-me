@@ -21,7 +21,18 @@ pre {
 }
 
 
-ul.navigation a {
+ul.menu a {
     color: white;
     margin-top: 40px;
+}
+
+
+div.profile .profile__name{
+    color: white;
+    font-size: 30px;
+}
+
+.profile__skill{
+    color: white;
+    font-size: 16px;
 }

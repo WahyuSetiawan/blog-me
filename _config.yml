@@ -32,10 +32,15 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-assets
 
 sass:
   sass_dir: _sass
   style: compressed
+
+assets:
+  sources:
+    - assets/img
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -45,7 +50,8 @@ sass:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
+exclude:
+  - README.md
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
@@ -56,3 +62,9 @@ sass:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+defaults:
+  - scope:
+      path: "_assets/img"
+    values:
+      image: true

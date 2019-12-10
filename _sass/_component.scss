@@ -1,12 +1,63 @@
-ul.navigation {
+ul.menu {
     list-style-type: none;
     text-decoration: none;
+    padding: 0;
+    margin-right: 30px;
 }
 
-ul.navigation li {
+ul.menu li {
+    margin-top: 10px;
+    text-align: center;
+}
+
+ul.menu li a {
+    text-decoration: none;
     margin-top: 5px;
 }
 
-ul.navigation a {
-    text-decoration: none;
+div.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+div.navigation div.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.profile__image {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    padding: 20px;
+}
+
+.profile__name {
+    margin-top: 20px;
+}
+
+.profile__skill {
+    margin-top: 10px;
+}
+
+.profile__social_media {
+    margin-top: 17px;
+}
+
+.profile__social_media .icon {
+    width: 35px;
+    height: 35px;
+    color: white;
+    padding-left: 10px;
+}
+
+.profile__social_media .icon:last-child {
+    width: 35px;
+    height: 35px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
 }
