@@ -245,3 +245,15 @@ const deleteBlogPost = dispatch => {
 }
 
 export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [] );
+
+/*
+
+catatan untuk bounds actions
+
+*/
+
+//actions ==== { addBlogPost : (Dispatch) => {return () => {} } }
+const boundsActions = {};
+fot (let key in actions){
+    boundsActions[key] = actions[key](dispatch);
+}
