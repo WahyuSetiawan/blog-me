@@ -9,31 +9,7 @@
     </head>
 
     <body>
-        <div class="navigation">
-            <ul class="navigation">
-                <li>
-                    <a href="{{site.url}}">Home</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/service">Service</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/experience">Experience</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/works">Works</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/blog">Blog</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/about">About</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/contact">Contact</a>
-                </li>
-            </ul>
-        </div>
+        {% include navigation.html %}
         <div class="container">
             {{content}}
         </div>
