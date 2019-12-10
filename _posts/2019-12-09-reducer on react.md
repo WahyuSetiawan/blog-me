@@ -1,16 +1,16 @@
 ---
 layout: post
-title:membuat reducer dan provider di react
+title: membuat reducer dan provider di react
 date: 2019-12-09 10:46
-category:React Nativ4e
+category: react
 author: Wahyu Setiawna
 tags: [react, mobile, js]
 summary: membuat reducer dan provider di react native
 ---
 
-
 membuat file reducer dengan naman createDataContext.js, isi file yang akan di gunakan seperti dibawah ini
 
+<pre>
 import React, { useReducer } from 'react';
 
 export default ( reducer, action, initialState ) => {
@@ -27,25 +27,24 @@ export default ( reducer, action, initialState ) => {
         );
     }
 };
-
+</pre>
 
 isi file di context pusat :
 
 import React, { useReducer } fron 'react';
 import reactDataContext()
 
-
 const blogReducer = (state, action) => {
-    switch (action.type){
-        case "add_blogpost":
-            return [...state, { title: 'Blog Post #${state.length + 1}}];
-        default:
-            return state;
-    }
+switch (action.type){
+case "add_blogpost":
+return [...state, { title: 'Blog Post #${state.length + 1}}];
+default:
+return state;
+}
 };
 
 const addBlogPost = () => {
-    dispatch({ type: 'add_blogpost' });
+dispatch({ type: 'add_blogpost' });
 };
 
 export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost }, [] );
@@ -57,7 +56,7 @@ menambah automatic content creation dengan menggunakan, mengubah file createData
 import React, { useReducer } from 'react';
 
 export defaul ( reducer , action, initialState ) => {
-    const Context =  React.createContext();
+const Context = React.createContext();
 
     const [ state, dispatch ] = userReducer(reducer, initialReducer);
 
@@ -76,6 +75,7 @@ export defaul ( reducer , action, initialState ) => {
             </Context.Provider>
         )
     }
+
 }
 
 mengubah di index screen dengan menggunakan creation context yang telah di gunakan
@@ -85,7 +85,7 @@ import { View, Text, StyleSheet, FlatList, Button } form 'react-native';
 import { Context } form '../context/BlogContext';
 
 const IndexScreen = () => {
-    const {data, addBlogPost } = userContext(Context);
+const {data, addBlogPost } = userContext(Context);
 
     return (
         <View>
@@ -100,48 +100,46 @@ const IndexScreen = () => {
             />
         </View>
     )
+
 }
 
 <h3>Deleting Post</h3>
-
 
 untuk menghapus post yang terdapat dalam provider porvider harus dirombah dengan menambahkan beberapa syntaq seperti
 
 import React, { useReducer } fron 'react';
 import reactDataContext()
 
-
 const blogReducer = (state, action) => {
-    switch (action.type){
-        case "delete_blogpost":
-            return state.filter({item} => item.id !== action.payload);
-        case "add_blogpost":
-            return [...state, { title: 'Blog Post #${state.length + 1}}];
-        default:
-            return state;
-    }
+switch (action.type){
+case "delete_blogpost":
+return state.filter({item} => item.id !== action.payload);
+case "add_blogpost":
+return [...state, { title: 'Blog Post #${state.length + 1}}];
+default:
+return state;
+}
 };
 
 const addBlogPost = dispatch => {
-    return () => {
-        dispatch({ type: 'add_blogpost' });
-    };
+return () => {
+dispatch({ type: 'add_blogpost' });
+};
 };
 
 const deleteBlogPost = dispatch => {
-    return (id) => {
-        dispatch({ type: 'delete_blogpost', payload: id});
-    };
+return (id) => {
+dispatch({ type: 'delete_blogpost', payload: id});
+};
 }
 
 export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [] );
 
-
-/*
+/\*
 
 view
 
-*/
+\*/
 
 import React, { userContext } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } form 'react-native';
@@ -149,7 +147,7 @@ import { Context } form '../context/BlogContext';
 import { Rather } form @expo/vector-icons;
 
 const IndexScreen = () => {
-    const {data, addBlogPost, deleteBlogPost } = userContext(Context);
+const {data, addBlogPost, deleteBlogPost } = userContext(Context);
 
     return (
         <View>
@@ -170,15 +168,15 @@ const IndexScreen = () => {
             />
         </View>
     )
-}
 
+}
 
 <h3>Add Navigation Options</h3>
 
 Header Navigation ditabahkan di file IndexScreen
 
 const IndexScreen = () => {
-    const {data, addBlogPost, deleteBlogPost } = userContext(Context);
+const {data, addBlogPost, deleteBlogPost } = userContext(Context);
 
     return (
         <View>
@@ -199,15 +197,15 @@ const IndexScreen = () => {
             />
         </View>
     )
+
 }
 
-
 IndexScreen.navigationOptions = (navigation) => {
-    return {
-        headerRight: <TouchableOpacity onPress={() => navigation.navigate("create")}>
-            <Feather name="plus" size={30} />
-        </TouchableOpacity>
-    }
+return {
+headerRight: <TouchableOpacity onPress={() => navigation.navigate("create")}>
+<Feather name="plus" size={30} />
+</TouchableOpacity>
+}
 };
 
 <h3>Saving A new post</h3>
@@ -216,44 +214,43 @@ import React, { useReducer } fron 'react';
 import reactDataContext()
 import Math from 'math';
 
-
 const blogReducer = (state, action) => {
-    switch (action.type){
-        case "delete_blogpost":
-            return state.filter({item} => item.id !== action.payload);
-        case "add_blogpost":
-            return [ ...state, {
-                id: Math.floor(Math.random() * 99999),
-                title: action.payload.title,
-                content: action.payload.content 
-            } } ];
-        default:
-            return state;
-    }
+switch (action.type){
+case "delete_blogpost":
+return state.filter({item} => item.id !== action.payload);
+case "add_blogpost":
+return [ ...state, {
+id: Math.floor(Math.random() * 99999),
+title: action.payload.title,
+content: action.payload.content
+} } ];
+default:
+return state;
+}
 };
 
 const addBlogPost = dispatch => {
-    return (title, content) => {
-        dispatch({ type: 'add_blogpost', data: [ title, content ] });
-    };
+return (title, content) => {
+dispatch({ type: 'add_blogpost', data: [ title, content ] });
+};
 };
 
 const deleteBlogPost = dispatch => {
-    return (id) => {
-        dispatch({ type: 'delete_blogpost', payload: id});
-    };
+return (id) => {
+dispatch({ type: 'delete_blogpost', payload: id});
+};
 }
 
 export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [] );
 
-/*
+/\*
 
 catatan untuk bounds actions
 
-*/
+\*/
 
 //actions ==== { addBlogPost : (Dispatch) => {return () => {} } }
 const boundsActions = {};
 fot (let key in actions){
-    boundsActions[key] = actions[key](dispatch);
+boundsActions[key] = actions[key](dispatch);
 }

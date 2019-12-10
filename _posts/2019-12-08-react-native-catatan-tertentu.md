@@ -2,7 +2,7 @@
 layout: post
 title: Perkenalan React Native
 date: 2019-12-08 13:38
-category: [ react, mobile, blog]
+category: [ react, mobile, tutorial]
 author: Wahyu Setiawan
 tags: [ react, mobile, blog]
 summary: 

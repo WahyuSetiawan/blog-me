@@ -27,17 +27,30 @@ ul.menu a {
 }
 
 
-div.profile .profile__name{
+div.profile .profile__name {
     color: white;
     font-size: 30px;
 }
 
-.profile__skill{
+.profile__skill {
     color: white;
     font-size: 16px;
 }
 
-.container__title{
+.container__title {
     font-size: 45px;
     margin-bottom: 20px;
+}
+
+.post__title {
+    font-size: 30px;
+}
+
+.post__author {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.post__content {
+    font-size: 12px;
 }

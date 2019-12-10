@@ -75,6 +75,10 @@ div.navigation div.profile {
     padding-right: 10px;
 }
 
+.post__area_author{
+    margin-top: 10px;
+}
+
 div.navigation {
     align-self: stretch;
     margin-bottom: auto;
@@ -86,4 +90,5 @@ div.container {
     padding: 15px;
     align-self: stretch;
     overflow-y: scroll;
+    background-color: $color-background-content;
 }
