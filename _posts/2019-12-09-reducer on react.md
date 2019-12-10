@@ -3,7 +3,7 @@ layout: post
 title: membuat reducer dan provider di react
 date: 2019-12-09 10:46
 category: react
-author: Wahyu Setiawna
+author: Wahyu Setiawan
 tags: [react, mobile, js]
 summary: membuat reducer dan provider di react native
 ---

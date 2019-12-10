@@ -42,22 +42,28 @@
 
     <ul class="menu">
         <li>
-            <a href="{{site.url}}">Home</a>
+            <a href="{{site.url}}" {% if" /" == page.url %} class="active" {%
+                endif %}>Home</a>
         </li>
         <li>
-            <a href="{{site.url}}/page/service">Service</a>
+            <a href="{{site.url}}/page/experience"
+                {% if "/page/experience.html" == page.url %} class="active"
+                {% endif %}>Experience</a>
         </li>
         <li>
-            <a href="{{site.url}}/page/experience">Experience</a>
+            <a href="{{site.url}}/page/works"
+                {% if "/page/works.html" == page.url %} class="active"
+                {% endif %}>Works</a>
         </li>
         <li>
-            <a href="{{site.url}}/page/works">Works</a>
+            <a href="{{site.url}}/page/blog"
+                {% if "/page/blog.html" == page.url %} class="active"
+                {% endif %}>Blog</a>
         </li>
         <li>
-            <a href="{{site.url}}/page/blog">Blog</a>
-        </li>
-        <li>
-            <a href="{{site.url}}/page/about">About</a>
+            <a href="{{site.url}}/page/about"
+                {% if "/page/about.html" == page.url %} class="active"
+                {% endif %}>About</a>
         </li>
     </ul>
 </div>

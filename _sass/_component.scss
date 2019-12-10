@@ -28,6 +28,12 @@ ul.menu li a {
     margin-top: 5px;
 }
 
+ul.menu li a:hover,
+ul.menu li a.active {
+    color: $color-second;
+}
+
+
 div.menu {
     display: flex;
     flex-direction: column;
@@ -75,7 +81,7 @@ div.navigation div.profile {
     padding-right: 10px;
 }
 
-.post__area_author{
+.post__area_author {
     margin-top: 10px;
 }
 
