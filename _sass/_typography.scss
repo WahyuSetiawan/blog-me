@@ -4,7 +4,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 18px;
     line-height: 1.5;
-    color: #24292e;
+    color: $color-navigation;
     background-color: #fff;
 }
 
@@ -27,12 +27,30 @@ ul.menu a {
 }
 
 
-div.profile .profile__name{
+div.profile .profile__name {
     color: white;
     font-size: 30px;
 }
 
-.profile__skill{
+.profile__skill {
     color: white;
     font-size: 16px;
+}
+
+.container__title {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.post__title {
+    font-size: 30px;
+}
+
+.post__author {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.post__content {
+    font-size: 12px;
 }

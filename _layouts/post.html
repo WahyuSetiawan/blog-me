@@ -9,33 +9,20 @@
     </head>
 
     <body>
-        <div class="navigation">
-            <ul class="navigation">
-                <li>
-                    <a href="{{site.url}}">Home</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/service">Service</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/experience">Experience</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/works">Works</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/blog">Blog</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/about">About</a>
-                </li>
-                <li>
-                    <a href="{{site.url}}/page/contact">Contact</a>
-                </li>
-            </ul>
-        </div>
+        {% include navigation.html %}
         <div class="container">
-            {{content}}
+            <div class="post">
+                <div class="post__title">
+                    {{page.title}}
+                </div>
+                <div class="post__area_author">
+                    author : <span class="post__author"> {{ page.author }}
+                    </span>
+                </div>
+                <div class="post__content">
+                    {{content}}
+                </div>
+            </div>
         </div>
     </body>
 
