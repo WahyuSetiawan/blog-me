@@ -1,4 +1,5 @@
 ---
+title: Catatan Harianku
 layout: default
 ---
 

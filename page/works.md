@@ -1,4 +1,5 @@
 ---
+title: Riwayat Pekerjaan
 layout: default
 ---
 

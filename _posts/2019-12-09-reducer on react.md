@@ -1,6 +1,6 @@
 ---
 layout: post
-title: membuat reducer dan provider di react
+title: Catatan pembelajaran reducer dan provider di react
 date: 2019-12-09 10:46
 category: react
 author: Wahyu Setiawan
