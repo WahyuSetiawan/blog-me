@@ -46,11 +46,12 @@ div.navigation div.profile {
     padding-top: 20px;
 }
 
-.profile__image {
+img.profile__image {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     background-size: cover;
+    object-fit: cover;
     padding: 20px;
 }
 

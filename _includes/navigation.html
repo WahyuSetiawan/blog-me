@@ -1,7 +1,7 @@
 <div class="navigation">
     <div class="profile">
         <img class="profile__image"
-            src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80"
+            src="{{ site.url }}/assets/jpg/profile.jpg"
             />
         <span class="profile__name">
             Wahyu Setiawan
@@ -46,20 +46,19 @@
                 {% if page.url =="/" %} class="active" {% endif %}>Home</a>
         </li>
         <li>
-            <a href="{{site.url}}/page/experience"
-                {% if page.url =="/page/experience.html" %} class="active" {% endif %}>Experience</a>
-        </li>
-        <li>
             <a href="{{site.url}}/page/works"
-                {% if page.url =="/page/works.html" %} class="active" {% endif %}>Works</a>
+                {% if page.url =="/page/works.html" %} class="active" {% endif
+                %}>Riwayat Pekerjaan</a>
         </li>
         <li>
-            <a href="{{site.url}}/page/blog
-                {% if page.url =="/page/blog.html" %} class="active" {% endif %}>Blog</a>
+            <a href="{{site.url}}/page/blog"
+                {% if page.url =="/page/blog.html" %} class="active" {% endif
+                %}>Blog</a>
         </li>
         <li>
-            <a href="{{site.url}}/page/about"
-                {% if page.url =="/page/about.html" %} class="active" {% endif %}>About</a>
+            <a href="{{site.url}}/page/datadiri"
+                {% if page.url =="/page/datadiri.html" %} class="active" {%
+                endif %}>Data Diri</a>
         </li>
     </ul>
 </div>
